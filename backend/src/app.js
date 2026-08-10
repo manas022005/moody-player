@@ -12,11 +12,11 @@ app.use(cors());
 app.use("/", songsRoutes);
 
 // Serve React frontend
-app.use(express.static(path.join(__dirname, "../../FRONTEND/dist")));
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
 // React fallback
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../FRONTEND/dist", "index.html"));
+app.get("/{*splat}", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../frontend/dist", "index.html"));
 });
 
 module.exports = app;
