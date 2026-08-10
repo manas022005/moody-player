@@ -42,11 +42,10 @@ export default function FacialExpression({ setsongs }) {
     
     console.log(_expression);
     // get method ki song hit krne he
-    axios.get(`http://localhost:3000/songs?mood=${_expression}`)
-      .then(response=>{
-        console.log(response.data)
-        setsongs(response.data.songs)
-      })
+    axios.get(`/songs?mood=${_expression}`).then((response) => {
+      console.log(response.data);
+      setsongs(response.data.songs);
+    });
   
   }
   useEffect(() => {
